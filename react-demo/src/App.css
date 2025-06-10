@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.notification-status {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.notification-status p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}

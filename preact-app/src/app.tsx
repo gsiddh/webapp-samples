@@ -2,6 +2,7 @@ import { useState } from 'preact/hooks'
 import preactLogo from './assets/preact.svg'
 import viteLogo from '/vite.svg'
 import './app.css'
+import FirebaseMessaging from './components/FirebaseMessaging'
 
 export function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,7 @@ export function App() {
       <p class="read-the-docs">
         Click on the Vite and Preact logos to learn more
       </p>
+      <FirebaseMessaging vapidKey="BH2rCQkMjwmOTRH9jkjykkmx5xUx25cDweLmL6cTlbJznP_nxtivrycwO4ltmlX3TyiHQjGGjJtZJqADYefGtPE" />
     </>
   )
 }
