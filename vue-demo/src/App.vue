@@ -1,5 +1,28 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue'
+import { messaging } from './firebase'
+import { getToken } from 'firebase/messaging'
+
+onMounted(() => {
+  Notification.requestPermission().then((permission) => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+      // Get the token
+      getToken(messaging, { vapidKey: 'BH2rCQkMjwmOTRH9jkjykkmx5xUx25cDweLmL6cTlbJznP_nxtivrycwO4ltmlX3TyiHQjGGjJtZJqADYefGtPE' }).then((currentToken) => {
+        if (currentToken) {
+          console.log('FCM Token:', currentToken);
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+    } else {
+      console.log('Unable to get permission to notify.');
+    }
+  });
+})
 </script>
 
 <template>
